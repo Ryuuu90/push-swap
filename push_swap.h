@@ -70,6 +70,6 @@ void    quick_sort(t_parce *data);
 void    sort_bigger(t_stack *stacks, t_parce *data);
 int		ft_lstsizep(t_link *stack);
 int		max_b(t_stack *stacks);
-int		before_max(t_stack *stacks);
+int		bmax(t_stack *stacks);
 
 #endif

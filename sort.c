@@ -109,7 +109,7 @@ int    check_if(t_stack *stacks, int start, int end, t_parce data)
 void    sort_bigger(t_stack *stacks, t_parce *data)
 {
     t_sort utils;
-    int i = data->size - 1;
+    int i = 0;
     int flag = 0;
 
     utils.div = 18;
@@ -117,7 +117,7 @@ void    sort_bigger(t_stack *stacks, t_parce *data)
         utils.div = 1;
     utils.mid = (data->size / 2) - 1;
     utils.offset = data->size / utils.div;
-    printf("%d\n", utils.offset);
+
     if(utils.offset == 0)
     {
         utils.offset = 1;
@@ -153,25 +153,42 @@ void    sort_bigger(t_stack *stacks, t_parce *data)
     while(stacks->b)
     {
         flag = 0;
-        if(stacks->b->num == data->arr[i - 1] && i > 0)
+        max_b(stacks);
+        while( stacks->b->num != data->arr[data->size - 1] && stacks->pos_max < ft_lstsizep(stacks->b) / 2)
         {
-            flag = 1;
-            pa(stacks);
-            i--;
+            if(stacks->b->num == data->arr[data->size - 2])
+            {
+               // printf("%d ==== %d\n", data->arr[data->size - 1], data->arr[data->size - 2]);
+                pa(stacks);
+                flag = 1;
+            }
+            else
+                rb(stacks);
+       // printf("nn:%d === %d === %d === %d\n", stacks->b->num, data->arr[data->size - 1], stacks->pos_max, ft_lstsizep(stacks->b) / 2);
         }
-        while(stacks->b->num != max_b(stacks)&& stacks->pos_max <= ft_lstsizep(stacks->b) / 2 && stacks->b->num != data->arr[i - 1])
-            rb(stacks);
-        while(stacks->b->num != max_b(stacks)&& stacks->pos_max > ft_lstsizep(stacks->b) / 2 &&  stacks->b->num != data->arr[i - 1])
-            rrb(stacks);
-        printf("%d === %d\n", stacks->b->num, data->arr[i - 1]);
-        
-        if(stacks->b->num == max_b(stacks))
+        while(stacks->b->num != data->arr[data->size - 1] && stacks->pos_max >= ft_lstsizep(stacks->b) / 2)
         {
-            printf("flag === %d\n", flag);
-            pa(stacks);
+            if(stacks->b->num == data->arr[data->size - 2])
+            {
+                //printf("%d ==== %d\n", data->arr[data->size - 1], data->arr[data->size - 2]);
+                pa(stacks);
+                flag = 1;
+            }
+            else
+                rrb(stacks);
+        }
+        if(stacks->b->num == data->arr[data->size - 1])
+        {
             if(flag == 1)
             {
+                pa(stacks);
                 sa(stacks);
+                data->size -= 2;
+            }
+            else
+            {
+                pa(stacks);
+                data->size--;
             }
         }
     }

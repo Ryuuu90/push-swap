@@ -22,37 +22,6 @@ int    max_b(t_stack *stacks)
     return(tmp);
 }
 
-int min_b(t_stack *stacks)
-{
-    t_link *a = stacks->b;
-    int tmp = stacks->b->num;
-    while(a)
-    {
-        if(tmp > a->num)
-        {
-            tmp = a->num;
-        }
-        a = a->next;
-    }
-    return(tmp);
-}
-int before_max(t_stack *stacks)
-{
-    t_link *a = stacks->b;
-    int tmp = min_b(stacks);
-    int max = max_b(stacks);
-    while(a)
-    {
-        if(a->num == max)
-            a = a->next;
-        if(tmp < a->num && a->num < max)
-                tmp = a->num;
-        a = a->next;
-    }
-    return(tmp);
-
-}
-
 int min(t_stack *stacks)
 {
     t_link *a = stacks->a;
@@ -70,6 +39,39 @@ int min(t_stack *stacks)
     while(a->num != tmp)
     {
         stacks->pos_min++;
+        a = a->next;
+    }
+    return(tmp);
+}
+
+int min_b(t_stack *stacks)
+{
+    t_link *a = stacks->b;
+    int tmp = stacks->b->num;
+    while(a)
+    {
+        if(tmp > a->num)
+        {
+            tmp = a->num;
+        }
+        a = a->next;
+    }
+    return(tmp);
+}
+
+int    bmax(t_stack *stacks)
+{
+    t_stack *l = stacks;
+     t_link *a = stacks->b;
+    int tmp = min_b(stacks);
+    while(a)
+    {
+        if(a->num == max_b(l))
+            a = a->next;
+        if(tmp < a->num)
+        {
+            tmp = a->num;
+        }
         a = a->next;
     }
     return(tmp);
