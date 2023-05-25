@@ -112,7 +112,7 @@ void    sort_bigger(t_stack *stacks, t_parce *data)
     int i = 0;
     int flag = 0;
 
-    utils.div = 18;
+    utils.div = 5;
     if(utils.div == 0)
         utils.div = 1;
     utils.mid = (data->size / 2) - 1;
@@ -124,7 +124,6 @@ void    sort_bigger(t_stack *stacks, t_parce *data)
     }
     utils.start = utils.mid - utils.offset;
     utils.end = utils.mid + utils.offset;
-    int max = data->size - 1;
     stacks->b = NULL;
 
     quick_sort(data);
@@ -154,23 +153,20 @@ void    sort_bigger(t_stack *stacks, t_parce *data)
     {
         flag = 0;
         max_b(stacks);
-        while( stacks->b->num != data->arr[data->size - 1] && stacks->pos_max < ft_lstsizep(stacks->b) / 2)
+        while(stacks->b->num != data->arr[data->size - 1] && stacks->pos_max < ft_lstsizep(stacks->b) / 2)
         {
             if(stacks->b->num == data->arr[data->size - 2])
             {
-               // printf("%d ==== %d\n", data->arr[data->size - 1], data->arr[data->size - 2]);
                 pa(stacks);
                 flag = 1;
             }
             else
                 rb(stacks);
-       // printf("nn:%d === %d === %d === %d\n", stacks->b->num, data->arr[data->size - 1], stacks->pos_max, ft_lstsizep(stacks->b) / 2);
         }
         while(stacks->b->num != data->arr[data->size - 1] && stacks->pos_max >= ft_lstsizep(stacks->b) / 2)
         {
             if(stacks->b->num == data->arr[data->size - 2])
             {
-                //printf("%d ==== %d\n", data->arr[data->size - 1], data->arr[data->size - 2]);
                 pa(stacks);
                 flag = 1;
             }
