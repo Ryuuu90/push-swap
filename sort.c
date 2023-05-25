@@ -153,17 +153,18 @@ void    sort_bigger(t_stack *stacks, t_parce *data)
     while(stacks->b)
     {
         flag = 0;
-        while(stacks->b->num != max_b(stacks)&& stacks->pos_max <= ft_lstsizep(stacks->b) / 2 && stacks->b->num != data->arr[i - 1])
-            rb(stacks);
-        while(stacks->b->num != max_b(stacks)&& stacks->pos_max > ft_lstsizep(stacks->b) / 2 &&  stacks->b->num != data->arr[i - 1])
-            rrb(stacks);
-        printf("%d === %d\n", stacks->b->num, data->arr[i - 1]);
         if(stacks->b->num == data->arr[i - 1] && i > 0)
         {
             flag = 1;
             pa(stacks);
             i--;
         }
+        while(stacks->b->num != max_b(stacks)&& stacks->pos_max <= ft_lstsizep(stacks->b) / 2 && stacks->b->num != data->arr[i - 1])
+            rb(stacks);
+        while(stacks->b->num != max_b(stacks)&& stacks->pos_max > ft_lstsizep(stacks->b) / 2 &&  stacks->b->num != data->arr[i - 1])
+            rrb(stacks);
+        printf("%d === %d\n", stacks->b->num, data->arr[i - 1]);
+        
         if(stacks->b->num == max_b(stacks))
         {
             printf("flag === %d\n", flag);
