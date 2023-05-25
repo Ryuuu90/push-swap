@@ -109,12 +109,19 @@ int    check_if(t_stack *stacks, int start, int end, t_parce data)
 void    sort_bigger(t_stack *stacks, t_parce *data)
 {
     t_sort utils;
+    int i = data->size - 1;
+    int flag = 0;
 
-    utils.div = 15;
+    utils.div = 18;
     if(utils.div == 0)
         utils.div = 1;
     utils.mid = (data->size / 2) - 1;
     utils.offset = data->size / utils.div;
+    printf("%d\n", utils.offset);
+    if(utils.offset == 0)
+    {
+        utils.offset = 1;
+    }
     utils.start = utils.mid - utils.offset;
     utils.end = utils.mid + utils.offset;
     int max = data->size - 1;
@@ -145,12 +152,26 @@ void    sort_bigger(t_stack *stacks, t_parce *data)
     }
     while(stacks->b)
     {
-        while(stacks->b->num != max_b(stacks)&& stacks->pos_max <= ft_lstsizep(stacks->b) / 2)
+        flag = 0;
+        while(stacks->b->num != max_b(stacks)&& stacks->pos_max <= ft_lstsizep(stacks->b) / 2 && stacks->b->num != data->arr[i - 1])
             rb(stacks);
-        while(stacks->b->num != max_b(stacks)&& stacks->pos_max > ft_lstsizep(stacks->b) / 2)
+        while(stacks->b->num != max_b(stacks)&& stacks->pos_max > ft_lstsizep(stacks->b) / 2 &&  stacks->b->num != data->arr[i - 1])
             rrb(stacks);
-        if(stacks->b->num == max_b(stacks))
+        if(stacks->b->num == data->arr[i - 1] && i > 0)
+        {
+            flag = 1;
             pa(stacks);
+            i--;
+        }
+        if(stacks->b->num == max_b(stacks))
+        {
+            printf("flag === %d\n", flag);
+            pa(stacks);
+            if(flag == 1)
+            {
+                sa(stacks);
+            }
+        }
     }
     // printf("start == %d && end == %d && mid == %d && div == %d && off == %d && posc == %d\n", data->arr[utils.start], data->arr[utils.end], data->arr[utils.mid], utils.div, utils.offset, stacks->pos_chunk);
     

@@ -27,12 +27,12 @@ int main(int ac,  char **av)
 	// 	printf("%d\n", data.arr[i]);
 		
 	// }
-	// if(data.size == 2)
-	// 	sa(&stacks);
-	// if(data.size == 3)
-	// 	sort_three(&stacks);
-	// if(data.size == 4 || data.size == 5)
-	// 	sort_four_five(&stacks, data.size);
+	 if(data.size == 2)
+	 	sa(&stacks);
+	 if(data.size == 3)
+	 	sort_three(&stacks);
+	 if(data.size == 4 || data.size == 5)
+	 	sort_four_five(&stacks, data.size);
 	if(data.size > 5)
 		sort_bigger(&stacks, &data);
 	while(stacks.a)

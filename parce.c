@@ -22,6 +22,7 @@ int stack_size(t_stack stacks)
 		i++;
 		stacks.a = stacks.a->next;
 	}
+	return(i);
 }
 int	there_is_double(char **arr, int n, int i)
 {
