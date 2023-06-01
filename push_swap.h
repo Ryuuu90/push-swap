@@ -6,7 +6,7 @@
 /*   By: rabou-rk <rabou-rk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 06:21:26 by rabou-rk          #+#    #+#             */
-/*   Updated: 2023/06/01 04:36:50 by rabou-rk         ###   ########.fr       */
+/*   Updated: 2023/06/01 09:35:14 by rabou-rk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int					min(t_stack *stacks);
 void				quick_sort(t_parce *data);
 void				sort_bigger(t_stack *stacks, t_parce *data);
 int					ft_lstsizep(t_link *stack);
-int					max_b(t_stack *stacks);
+int					max_b(t_stack *stacks, int max);
 int					bmax(t_stack *stacks);
 void				do_rb(t_stack *stacks, t_parce *data);
 void				do_rrb(t_stack *stacks, t_parce *data);

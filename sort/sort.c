@@ -6,7 +6,7 @@
 /*   By: rabou-rk <rabou-rk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 07:11:26 by rabou-rk          #+#    #+#             */
-/*   Updated: 2023/06/01 05:42:30 by rabou-rk         ###   ########.fr       */
+/*   Updated: 2023/06/01 12:00:18 by rabou-rk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,18 +97,43 @@ void	push_to_b(t_stack *stacks, t_parce *data)
 
 void	push_back(t_stack *stacks, t_parce *data)
 {
-	while (stacks->b)
+	int down = 0;
+	while(stacks->b)
 	{
-		stacks->flag = 0;
-		max_b(stacks);
-		while (stacks->b->num != data->arr[data->size - 1]
-			&& stacks->pos_max < ft_lstsizep(stacks->b) / 2)
-			do_rb(stacks, data);
-		while (stacks->b->num != data->arr[data->size - 1]
-			&& stacks->pos_max >= ft_lstsizep(stacks->b) / 2)
-			do_rrb(stacks, data);
-		do_pa(stacks, data);
+		if(max_b(stacks, data->arr[data->size]))
+		{
+			printf("%d ===== %d", max_b(stacks, data->arr[data->size], stacks->pos_max);
+			if(stacks->b->num == data->arr[data->size])
+			{
+				pa(stacks);
+				data->size--;
+			}
+			else
+			{
+				if(!down || stacks->b->num > ft_lstlastp(stacks->a)->num)
+				{
+					pa(stacks);
+					ra(stacks);
+					++down;
+				}
+				else
+				{
+					if(stacks->pos_max <= ft_lstsizep(stacks->b) / 2)
+						rb(stacks);
+					else
+						rrb(stacks);
+				}
+			}
+		}
+		else
+		{
+			rra(stacks);
+			down--;
+			data->size--;
+		}
 	}
+	while(down--)
+		rra(stacks);
 }
 
 void	sort_bigger(t_stack *stacks, t_parce *data)

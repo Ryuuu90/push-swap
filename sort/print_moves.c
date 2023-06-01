@@ -6,7 +6,7 @@
 /*   By: rabou-rk <rabou-rk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 23:03:52 by rabou-rk          #+#    #+#             */
-/*   Updated: 2023/06/01 04:32:01 by rabou-rk         ###   ########.fr       */
+/*   Updated: 2023/06/01 08:13:00 by rabou-rk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,38 +14,28 @@
 
 void	print_moves(int move)
 {
+	int			flag;
 	static int prev;
-	static char moves[9][4] = { "no", "sa", "sb", "ra", "rb", "rra", "rrb", "pa", "pb"};
+	static char *moves[8] = {"sa", "sb", "ra", "rb", "rra", "rrb", "pa", "pb"};
 	//prev = 0;
-	prev = move;
+	flag = !(1);
 	if(prev == 0)
 	{
 		prev = move;
 		return;
-		//printf("%d +++ %d\n",prev, move);
 	}
 	if((prev == 1 && move == 2) || (prev == 2 && move == 1))
-	{
-		printf("ssssssss\n");
-		printf("%s\n", "ss");
-		prev = 0;
-	}
-	if((prev == 3 && move == 4) || (prev == 4 && move == 3))
-	{
-		printf("r1111111\n");
-		printf("%s\n", "rr");
-		prev = 0;
-	}
-	if((prev == 5 && move == 6 )|| (prev == 6 && move == 5))
-	{
-		printf("r22222222\n");
-		printf("%s\n", "rrr");
-		prev = 0;
-	}
+		printf("ss\n");
+	else if((prev == 3 && move == 4) || (prev == 4 && move == 3))
+		printf("rr\n");
+	else if((prev == 5 && move == 6 )|| (prev == 6 && move == 5))
+		printf("rrr\n");
 	else
 	{
-		printf("%s\n", moves[prev]);
-		printf("zbbbb\n");
-		prev = 0;
+		printf("%s\n", moves[prev - 1]);
+		flag = 1;
 	}
+	prev = 0;
+	if(flag == 1)
+		prev = move;
 }

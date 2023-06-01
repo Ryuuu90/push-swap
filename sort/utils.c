@@ -6,7 +6,7 @@
 /*   By: rabou-rk <rabou-rk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 06:21:15 by rabou-rk          #+#    #+#             */
-/*   Updated: 2023/06/01 05:43:18 by rabou-rk         ###   ########.fr       */
+/*   Updated: 2023/06/01 09:31:37 by rabou-rk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ void	do_rb(t_stack *stacks, t_parce *data)
 	if (stacks->b->num == data->arr[data->size - 2])
 	{
 		pa(stacks);
-		stacks->flag = 1;
+		ra(stacks);
+		data->size--;
 	}
 	else
 		rb(stacks);
@@ -28,7 +29,8 @@ void	do_rrb(t_stack *stacks, t_parce *data)
 	if (stacks->b->num == data->arr[data->size - 2])
 	{
 		pa(stacks);
-		stacks->flag = 1;
+		ra(stacks);
+		data->size--;
 	}
 	else
 		rrb(stacks);
@@ -36,12 +38,12 @@ void	do_rrb(t_stack *stacks, t_parce *data)
 
 void	do_pa(t_stack *stacks, t_parce *data)
 {
-	if (stacks->b->num == data->arr[data->size - 1])
+	if (stacks->b->num > ft_lstlastp(stacks->a)->num)
 	{
 		if (stacks->flag == 1)
 		{
 			pa(stacks);
-			sa(stacks);
+			rra(stacks);
 			data->size -= 2;
 		}
 		else

@@ -6,7 +6,7 @@
 /*   By: rabou-rk <rabou-rk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 06:21:33 by rabou-rk          #+#    #+#             */
-/*   Updated: 2023/06/01 05:47:19 by rabou-rk         ###   ########.fr       */
+/*   Updated: 2023/06/01 11:34:30 by rabou-rk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,9 @@ int	main(int ac, char **av)
 		sort_four_five(&stacks, data.size);
 	if (data.size > 5)
 		sort_bigger(&stacks, &data);
+	while(stacks.a)
+	{
+		printf("%d\n", stacks.a->num);
+		stacks.a = stacks.a->next;
+	}
 }
