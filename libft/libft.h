@@ -6,7 +6,7 @@
 /*   By: rabou-rk <rabou-rk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 17:54:17 by rabou-rk          #+#    #+#             */
-/*   Updated: 2023/04/02 02:40:04 by rabou-rk         ###   ########.fr       */
+/*   Updated: 2023/06/01 02:11:46 by rabou-rk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ char	*ft_strtrim(char const *s1, char const *set);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
 char	*ft_itoa(int n);
-char	**ft_split(char const *s, char c);
+char	**ft_split(char *s, char c);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 void	ft_putchar_fd(char c, int fd);

@@ -6,7 +6,7 @@
 /*   By: rabou-rk <rabou-rk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 15:05:32 by rabou-rk          #+#    #+#             */
-/*   Updated: 2023/04/02 02:40:17 by rabou-rk         ###   ########.fr       */
+/*   Updated: 2023/06/01 01:48:01 by rabou-rk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ char	*ft_strjoinn(char *s1, char const *s2)
 	while (s2[j] != '\0')
 		sj[i++] = s2[j++];
 	sj[i] = '\0';
+	free(s1);
 	return (sj);
 }

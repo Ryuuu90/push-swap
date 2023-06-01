@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parce.c                                            :+:      :+:    :+:   */
+/*   parce_b.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rabou-rk <rabou-rk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/12 11:21:39 by rabou-rk          #+#    #+#             */
-/*   Updated: 2023/06/01 05:47:02 by rabou-rk         ###   ########.fr       */
+/*   Created: 2023/05/26 20:21:05 by rabou-rk          #+#    #+#             */
+/*   Updated: 2023/05/31 10:46:38 by rabou-rk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 int	stack_size(t_stack stacks)
 {
@@ -56,13 +56,13 @@ void	sorted(t_parce *data)
 
 void	parce(char **av, int ac, t_parce *data)
 {
+	data->i = 1;
+	data->size = 0;
 	if (ac > 1)
 	{
 		while (av[data->i])
 		{
 			data->str = ft_strjoinn(data->str, av[data->i]);
-			if (!data->str[0])
-				ft_perror(1);
 			data->i++;
 		}
 		data->s = ft_split(data->str, ' ');
@@ -79,16 +79,5 @@ void	parce(char **av, int ac, t_parce *data)
 		sorted(data);
 	}
 	else
-		ft_perror(4);
-}
-
-void	do_pb(t_stack *stacks, t_parce *data, t_sort utils)
-{
-	if (stacks->a->num >= data->arr[utils.start]
-		&& stacks->a->num <= data->arr[utils.end])
-		pb(stacks);
-	if (stacks->b->num < data->arr[utils.mid] && stacks->b->next)
-		rb(stacks);
-	if (ft_lstsizep(stacks->a) == 1)
-		pb(stacks);
+		exit(0);
 }
