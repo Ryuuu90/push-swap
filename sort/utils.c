@@ -6,34 +6,32 @@
 /*   By: rabou-rk <rabou-rk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 06:21:15 by rabou-rk          #+#    #+#             */
-/*   Updated: 2023/06/01 09:31:37 by rabou-rk         ###   ########.fr       */
+/*   Updated: 2023/06/05 23:23:10 by rabou-rk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	do_rb(t_stack *stacks, t_parce *data)
+void	check_and_push(t_stack *stacks, t_parce *data)
 {
-	if (stacks->b->num == data->arr[data->size - 2])
+	if (stacks->b->num == data->arr[data->size - 1])
+	{
+		pa(stacks);
+		data->size--;
+	}
+	else if (stacks->flag == 0 || stacks->b->num > ft_lstlastp(stacks->a)->num)
 	{
 		pa(stacks);
 		ra(stacks);
-		data->size--;
+		stacks->flag++;
 	}
 	else
-		rb(stacks);
-}
-
-void	do_rrb(t_stack *stacks, t_parce *data)
-{
-	if (stacks->b->num == data->arr[data->size - 2])
 	{
-		pa(stacks);
-		ra(stacks);
-		data->size--;
+		if (stacks->pos_max <= ft_lstsizep(stacks->b) / 2)
+			rb(stacks);
+		else
+			rrb(stacks);
 	}
-	else
-		rrb(stacks);
 }
 
 void	do_pa(t_stack *stacks, t_parce *data)

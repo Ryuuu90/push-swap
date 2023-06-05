@@ -6,7 +6,7 @@
 /*   By: rabou-rk <rabou-rk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 06:21:30 by rabou-rk          #+#    #+#             */
-/*   Updated: 2023/06/01 11:18:35 by rabou-rk         ###   ########.fr       */
+/*   Updated: 2023/06/05 16:40:43 by rabou-rk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,10 @@ int	max_b(t_stack *stacks, int max)
 	stacks->pos_max = 0;
 	while (a)
 	{
-		if(max != a->num)
+		if (max != a->num)
 			stacks->pos_max++;
 		if (max == a->num)
 			return (1);
-		
 		a = a->next;
 	}
 	return (0);

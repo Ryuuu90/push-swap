@@ -6,7 +6,7 @@
 /*   By: rabou-rk <rabou-rk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 07:11:26 by rabou-rk          #+#    #+#             */
-/*   Updated: 2023/06/01 12:00:18 by rabou-rk         ###   ########.fr       */
+/*   Updated: 2023/06/05 23:22:53 by rabou-rk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,42 +97,19 @@ void	push_to_b(t_stack *stacks, t_parce *data)
 
 void	push_back(t_stack *stacks, t_parce *data)
 {
-	int down = 0;
-	while(stacks->b)
+	stacks->flag = 0;
+	while (stacks->b)
 	{
-		if(max_b(stacks, data->arr[data->size]))
-		{
-			printf("%d ===== %d", max_b(stacks, data->arr[data->size], stacks->pos_max);
-			if(stacks->b->num == data->arr[data->size])
-			{
-				pa(stacks);
-				data->size--;
-			}
-			else
-			{
-				if(!down || stacks->b->num > ft_lstlastp(stacks->a)->num)
-				{
-					pa(stacks);
-					ra(stacks);
-					++down;
-				}
-				else
-				{
-					if(stacks->pos_max <= ft_lstsizep(stacks->b) / 2)
-						rb(stacks);
-					else
-						rrb(stacks);
-				}
-			}
-		}
-		else
+		if (max_b(stacks, data->arr[data->size - 1]))
+			check_and_push(stacks, data);
+		else if (stacks->a->num > ft_lstlastp(stacks->a)->num)
 		{
 			rra(stacks);
-			down--;
+			stacks->flag--;
 			data->size--;
 		}
 	}
-	while(down--)
+	while (stacks->a->num > ft_lstlastp(stacks->a)->num)
 		rra(stacks);
 }
 
