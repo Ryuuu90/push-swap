@@ -6,13 +6,13 @@
 /*   By: rabou-rk <rabou-rk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 12:16:06 by rabou-rk          #+#    #+#             */
-/*   Updated: 2023/05/31 10:56:55 by rabou-rk         ###   ########.fr       */
+/*   Updated: 2023/06/09 16:02:56 by rabou-rk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-void	stack_a(t_stack *stacks, t_parce *data)
+void	stack_a(t_stack *stacks, t_parse *data)
 {
 	int	i;
 
@@ -67,20 +67,26 @@ void	checker(char *str, t_stack *stacks)
 		rra_b(stacks);
 	else if (ft_strncmp("rrb\n", str, 4) == 0)
 		rrb_b(stacks);
+	else if (ft_strncmp("rrr\n", str, 4) == 0)
+		rrr_b(stacks);
+	else if (ft_strncmp("rr\n", str, 3) == 0)
+		rr_b(stacks);
+	else if (ft_strncmp("ss\n", str, 4) == 0)
+		ss_b(stacks);
 	else
 		ft_perror(6);
 }
 
 int	main(int ac, char **av)
 {
-	t_parce	data;
-	t_parce	data2;
+	t_parse	data;
+	t_parse	data2;
 	t_stack	stacks;
 	char	*line;
 
 	line = NULL;
 	data2.str = NULL;
-	parce(av, ac, &data);
+	parse(av, ac, &data);
 	stack_a(&stacks, &data);
 	line = get_next_line(0);
 	while (line)
@@ -94,5 +100,4 @@ int	main(int ac, char **av)
 		write(1, "\033[1;32mOK\033[0m\n", 14);
 	else
 		write(1, "\033[1;31mKO\033[0m\n", 14);
-	system("leaks checker");
 }

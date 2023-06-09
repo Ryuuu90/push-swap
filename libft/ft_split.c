@@ -6,7 +6,7 @@
 /*   By: rabou-rk <rabou-rk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 09:27:43 by rabou-rk          #+#    #+#             */
-/*   Updated: 2023/06/01 02:28:15 by rabou-rk         ###   ########.fr       */
+/*   Updated: 2023/06/06 23:23:50 by rabou-rk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static char	**ft_fillstr(char const *s, char **str, char c)
 	j = 0;
 	while (*s)
 	{
-		while (*s == c)
+		while (*s == c || *s == '\t')
 			s++;
 		i = 0;
 		while (s[i] && s[i] != c)

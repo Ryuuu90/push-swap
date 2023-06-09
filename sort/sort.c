@@ -6,7 +6,7 @@
 /*   By: rabou-rk <rabou-rk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 07:11:26 by rabou-rk          #+#    #+#             */
-/*   Updated: 2023/06/05 23:22:53 by rabou-rk         ###   ########.fr       */
+/*   Updated: 2023/06/09 17:39:00 by rabou-rk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	sort_four_five(t_stack *stacks, int size)
 	}
 }
 
-void	push_to_b(t_stack *stacks, t_parce *data)
+void	push_to_b(t_stack *stacks, t_parse *data)
 {
 	t_sort	utils;
 
@@ -95,12 +95,12 @@ void	push_to_b(t_stack *stacks, t_parce *data)
 	}
 }
 
-void	push_back(t_stack *stacks, t_parce *data)
+void	push_back(t_stack *stacks, t_parse *data)
 {
 	stacks->flag = 0;
 	while (stacks->b)
 	{
-		if (max_b(stacks, data->arr[data->size - 1]))
+		if (max(stacks, data->arr[data->size - 1]))
 			check_and_push(stacks, data);
 		else if (stacks->a->num > ft_lstlastp(stacks->a)->num)
 		{
@@ -113,7 +113,7 @@ void	push_back(t_stack *stacks, t_parce *data)
 		rra(stacks);
 }
 
-void	sort_bigger(t_stack *stacks, t_parce *data)
+void	sort_bigger(t_stack *stacks, t_parse *data)
 {
 	quick_sort(data);
 	push_to_b(stacks, data);

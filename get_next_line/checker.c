@@ -6,13 +6,13 @@
 /*   By: rabou-rk <rabou-rk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 12:16:06 by rabou-rk          #+#    #+#             */
-/*   Updated: 2023/05/26 18:50:34 by rabou-rk         ###   ########.fr       */
+/*   Updated: 2023/06/06 22:43:46 by rabou-rk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-void	stack_a(t_stack *stacks, t_parce *data)
+void	stack_a(t_stack *stacks, t_parse *data)
 {
 	int	i;
 
@@ -47,7 +47,7 @@ int	check_if_sorted(t_stack *stacks)
 	return (1);
 }
 
-void	checker(t_parce data2, t_stack *stacks)
+void	checker(t_parse data2, t_stack *stacks)
 {
 	while (data2.s[data2.i])
 	{
@@ -75,8 +75,8 @@ void	checker(t_parce data2, t_stack *stacks)
 
 int	main(int ac, char **av)
 {
-	t_parce	data;
-	t_parce	data2;
+	t_parse	data;
+	t_parse	data2;
 	t_stack	stacks;
 	char	*line;
 	int		i;
@@ -85,7 +85,7 @@ int	main(int ac, char **av)
 	data2.str = NULL;
 	data2.i = 0;
 	data.arr = malloc(sizeof(int *) * ac);
-	parce(av, ac, &data);
+	parse(av, ac, &data);
 	stack_a(&stacks, &data);
 	line = get_next_line(0);
 	while (line)

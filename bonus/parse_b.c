@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parce_b.c                                          :+:      :+:    :+:   */
+/*   parse_b.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rabou-rk <rabou-rk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 20:21:05 by rabou-rk          #+#    #+#             */
-/*   Updated: 2023/05/31 10:46:38 by rabou-rk         ###   ########.fr       */
+/*   Updated: 2023/06/07 00:43:25 by rabou-rk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,24 +37,7 @@ int	there_is_double(char **arr, int n, int i)
 	return (1);
 }
 
-void	sorted(t_parce *data)
-{
-	int	sort;
-	int	y;
-
-	sort = 0;
-	y = 0;
-	while (y < data->size - 1)
-	{
-		if (data->arr[y] < data->arr[y + 1])
-			sort++;
-		if (sort == data->size - 1)
-			exit(0);
-		y++;
-	}
-}
-
-void	parce(char **av, int ac, t_parce *data)
+void	parse(char **av, int ac, t_parse *data)
 {
 	data->i = 1;
 	data->size = 0;
@@ -76,7 +59,6 @@ void	parce(char **av, int ac, t_parce *data)
 				ft_perror(5);
 			data->j++;
 		}
-		sorted(data);
 	}
 	else
 		exit(0);

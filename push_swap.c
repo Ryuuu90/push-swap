@@ -6,13 +6,13 @@
 /*   By: rabou-rk <rabou-rk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 06:21:33 by rabou-rk          #+#    #+#             */
-/*   Updated: 2023/06/05 23:29:26 by rabou-rk         ###   ########.fr       */
+/*   Updated: 2023/06/09 17:39:06 by rabou-rk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	stack_a(t_stack *stacks, t_parce *data)
+void	stack_a(t_stack *stacks, t_parse *data)
 {
 	int	i;
 
@@ -58,13 +58,21 @@ void	check_space(char **av)
 
 int	main(int ac, char **av)
 {
-	t_parce	data;
+	t_parse	data;
 	t_stack	stacks;
+	int		x;
 
 	data.i = 1;
 	data.size = 0;
+	x = 0;
+	while (av[x])
+	{
+		if (!av[x][0])
+			ft_perror(1);
+		x++;
+	}
 	check_space(av);
-	parce(av, ac, &data);
+	parse(av, ac, &data);
 	stack_a(&stacks, &data);
 	if (data.size == 2)
 		sa(&stacks);

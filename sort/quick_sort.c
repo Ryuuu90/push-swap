@@ -6,13 +6,13 @@
 /*   By: rabou-rk <rabou-rk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 06:21:30 by rabou-rk          #+#    #+#             */
-/*   Updated: 2023/06/05 16:40:43 by rabou-rk         ###   ########.fr       */
+/*   Updated: 2023/06/07 07:59:38 by rabou-rk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	max_b(t_stack *stacks, int max)
+int	max(t_stack *stacks, int max)
 {
 	t_link	*a;
 
@@ -54,7 +54,7 @@ int	min(t_stack *stacks)
 	return (tmp);
 }
 
-void	quick_sort(t_parce *data)
+void	quick_sort(t_parse *data)
 {
 	int	i;
 	int	j;

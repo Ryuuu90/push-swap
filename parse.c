@@ -6,7 +6,7 @@
 /*   By: rabou-rk <rabou-rk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 11:21:39 by rabou-rk          #+#    #+#             */
-/*   Updated: 2023/06/01 08:55:55 by rabou-rk         ###   ########.fr       */
+/*   Updated: 2023/06/06 22:43:46 by rabou-rk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	there_is_double(char **arr, int n, int i)
 	return (1);
 }
 
-void	sorted(t_parce *data)
+void	sorted(t_parse *data)
 {
 	int	sort;
 	int	y;
@@ -54,15 +54,13 @@ void	sorted(t_parce *data)
 	}
 }
 
-void	parce(char **av, int ac, t_parce *data)
+void	parse(char **av, int ac, t_parse *data)
 {
 	if (ac > 1)
 	{
 		while (av[data->i])
 		{
 			data->str = ft_strjoinn(data->str, av[data->i]);
-			if (!data->str[0])
-				ft_perror(1);
 			data->i++;
 		}
 		data->s = ft_split(data->str, ' ');
@@ -82,7 +80,7 @@ void	parce(char **av, int ac, t_parce *data)
 		ft_perror(4);
 }
 
-void	do_pb(t_stack *stacks, t_parce *data, t_sort utils)
+void	do_pb(t_stack *stacks, t_parse *data, t_sort utils)
 {
 	if (stacks->a->num >= data->arr[utils.start]
 		&& stacks->a->num <= data->arr[utils.end])

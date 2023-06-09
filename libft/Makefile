@@ -56,7 +56,7 @@ ARV = ar -rc
 
 REM = rm -f
 
-all : $(NAME)
+all : $(NAME) clean
 
 $(NAME) : $(OBJS)
 	@$(ARV) $(NAME) $(OBJS)

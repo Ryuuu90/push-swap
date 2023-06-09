@@ -6,13 +6,13 @@
 /*   By: rabou-rk <rabou-rk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 06:21:15 by rabou-rk          #+#    #+#             */
-/*   Updated: 2023/06/05 23:23:10 by rabou-rk         ###   ########.fr       */
+/*   Updated: 2023/06/09 17:22:48 by rabou-rk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	check_and_push(t_stack *stacks, t_parce *data)
+void	check_and_push(t_stack *stacks, t_parse *data)
 {
 	if (stacks->b->num == data->arr[data->size - 1])
 	{
@@ -34,25 +34,7 @@ void	check_and_push(t_stack *stacks, t_parce *data)
 	}
 }
 
-void	do_pa(t_stack *stacks, t_parce *data)
-{
-	if (stacks->b->num > ft_lstlastp(stacks->a)->num)
-	{
-		if (stacks->flag == 1)
-		{
-			pa(stacks);
-			rra(stacks);
-			data->size -= 2;
-		}
-		else
-		{
-			pa(stacks);
-			data->size--;
-		}
-	}
-}
-
-void	update_utils(t_sort *utils, t_parce *data)
+void	update_utils(t_sort *utils, t_parse *data)
 {
 	if (data->size < 150)
 		utils->div = 5;
@@ -68,7 +50,7 @@ void	update_utils(t_sort *utils, t_parce *data)
 	utils->end = utils->mid + utils->offset;
 }
 
-int	check_if(t_stack *stacks, int start, int end, t_parce data)
+int	check_if(t_stack *stacks, int start, int end, t_parse data)
 {
 	t_link	*a;
 

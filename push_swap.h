@@ -6,7 +6,7 @@
 /*   By: rabou-rk <rabou-rk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 06:21:26 by rabou-rk          #+#    #+#             */
-/*   Updated: 2023/06/05 23:23:38 by rabou-rk         ###   ########.fr       */
+/*   Updated: 2023/06/07 08:00:47 by rabou-rk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct push_swap
 	int				i;
 	int				j;
 	int				size;
-}					t_parce;
+}					t_parse;
 
 typedef struct s_sort
 {
@@ -57,7 +57,7 @@ typedef struct s_sort
 }					t_sort;
 
 void				ft_perror(int error);
-void				parce(char **av, int ac, t_parce *data);
+void				parse(char **av, int ac, t_parse *data);
 t_link				*ft_lstnewp(int num);
 t_link				*ft_lstlastp(t_link *lst);
 void				ft_lstadd_backp(t_link **lst, t_link *new);
@@ -71,19 +71,18 @@ void				pb(t_stack *stacks);
 void				rb(t_stack *stacks);
 void				rrb(t_stack *stacks);
 void				rr(t_stack *stacks);
+void				rrr(t_stack *stacks);
+void				ss(t_stack *stacks);
 void				sort_three(t_stack *stacks);
 void				sort_four_five(t_stack *stacks, int size);
 int					min(t_stack *stacks);
-void				quick_sort(t_parce *data);
-void				sort_bigger(t_stack *stacks, t_parce *data);
+void				quick_sort(t_parse *data);
+void				sort_bigger(t_stack *stacks, t_parse *data);
 int					ft_lstsizep(t_link *stack);
-int					max_b(t_stack *stacks, int max);
-int					bmax(t_stack *stacks);
-void				do_pa(t_stack *stacks, t_parce *data);
-void				update_utils(t_sort *utils, t_parce *data);
-int					check_if(t_stack *stacks, int start, int end, t_parce data);
-void				do_pb(t_stack *stacks, t_parce *data, t_sort utils);
-void				print_moves(int move);
-void				check_and_push(t_stack *stacks, t_parce *data);
+int					max(t_stack *stacks, int max);
+void				update_utils(t_sort *utils, t_parse *data);
+int					check_if(t_stack *stacks, int start, int end, t_parse data);
+void				do_pb(t_stack *stacks, t_parse *data, t_sort utils);
+void				check_and_push(t_stack *stacks, t_parse *data);
 
 #endif
